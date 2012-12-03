@@ -1,0 +1,57 @@
+<%= form_for(@venue) do |f| %>
+  <% if @venue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
+
+      <ul>
+      <% @venue.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :venuid %><br />
+    <%= f.text_field :venuid %>
+  </div>
+  <div class="field">
+    <%= f.label :market_value %><br />
+    <%= f.number_field :market_value %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_profit %><br />
+    <%= f.number_field :expected_profit %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_rent %><br />
+    <%= f.number_field :expected_rent %>
+  </div>
+  <div class="field">
+    <%= f.label :cat_id %><br />
+    <%= f.text_field :cat_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cat_name %><br />
+    <%= f.text_field :cat_name %>
+  </div>
+  <div class="field">
+    <%= f.label :cat_color %><br />
+    <%= f.text_field :cat_color %>
+  </div>
+  <div class="field">
+    <%= f.label :cat_image %><br />
+    <%= f.text_field :cat_image %>
+  </div>
+  <div class="field">
+    <%= f.label :fsq_id %><br />
+    <%= f.text_field :fsq_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

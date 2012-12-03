@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @venue.name %>
+</p>
+
+<p>
+  <b>Venuid:</b>
+  <%= @venue.venuid %>
+</p>
+
+<p>
+  <b>Market value:</b>
+  <%= @venue.market_value %>
+</p>
+
+<p>
+  <b>Expected profit:</b>
+  <%= @venue.expected_profit %>
+</p>
+
+<p>
+  <b>Expected rent:</b>
+  <%= @venue.expected_rent %>
+</p>
+
+<p>
+  <b>Cat:</b>
+  <%= @venue.cat_id %>
+</p>
+
+<p>
+  <b>Cat name:</b>
+  <%= @venue.cat_name %>
+</p>
+
+<p>
+  <b>Cat color:</b>
+  <%= @venue.cat_color %>
+</p>
+
+<p>
+  <b>Cat image:</b>
+  <%= @venue.cat_image %>
+</p>
+
+<p>
+  <b>Fsq:</b>
+  <%= @venue.fsq_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<%= link_to 'Back', venues_path %>

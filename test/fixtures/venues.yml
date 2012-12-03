@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  venuid: MyString
+  market_value: 1
+  expected_profit: 1
+  expected_rent: 1
+  cat_id: MyString
+  cat_name: MyString
+  cat_color: MyString
+  cat_image: MyString
+  fsq_id: MyString
+
+two:
+  name: MyString
+  venuid: MyString
+  market_value: 1
+  expected_profit: 1
+  expected_rent: 1
+  cat_id: MyString
+  cat_name: MyString
+  cat_color: MyString
+  cat_image: MyString
+  fsq_id: MyString
