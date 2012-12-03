@@ -1,7 +1,11 @@
 class Venue < ActiveRecord::Base
   attr_accessible :cat_color, :cat_id, :cat_image, :cat_name, :expected_profit, :expected_rent, :fsq_id, :market_value, :name, :venuid, :daily_costs
 
-before_create :fetch_landlord_data
+before_create :fetch_landlord_data, :remove_old
+
+  def remove_old
+    Venue.delete_all(:fsq_id => self.fsq_id)
+  end
 
   def fetch_landlord_data
     require "net/https"
