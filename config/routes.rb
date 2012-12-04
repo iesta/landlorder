@@ -3,7 +3,11 @@ Landlorder::Application.routes.draw do
 
   get "account/update"
 
-  resources :venues
+  resources :venues do
+    member do
+      post 'buy'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -20,6 +20,7 @@
     <th>Daily costs</th>
 <!--     <th>Cat</th> -->
     <th>Cat</th>
+    <th>User</th>
 <!--     <th>Cat color</th>
     <th>Cat image</th> -->
     <th></th>
@@ -36,6 +37,7 @@
     <td><%= df venue.daily_costs %></td>
 <!--     <td><%= venue.cat_id %></td> -->
     <td><%= venue.cat_name %></td>
+    <td><%= venue.user.nickname -%></td>
 <!--     <td><%= venue.cat_color %></td>
     <td><%= venue.cat_image %></td> -->
     <!-- <td><%= link_to 'Show', venue %></td> -->
@@ -44,7 +46,7 @@
     <td>
     	<%= link_to raw("<i class='icon-th-large'></i>"), "https://fr.foursquare.com/v/#{venue.fsq_id}" %>
     	<%= link_to raw("<i class='icon-remove'></i>"), venue, method: :delete, data: { confirm: 'Are you sure?' } %>
-    	<%= link_to raw("<i class='icon-shopping-cart'></i>"), venue %>
+    	<%= link_to raw("<i class='icon-shopping-cart'></i>"), buy_venue_path(venue), :method => :post %>
     </td>
   </tr>
 <% end %>

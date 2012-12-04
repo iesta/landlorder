@@ -42,7 +42,8 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(params[:venue])
-    
+    @venue.user = current_user
+
     respond_to do |format|
       if @venue.save
         format.html { redirect_to venues_path, notice: 'Venue was successfully created.' }
@@ -51,6 +52,14 @@ class VenuesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @venue.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def buy
+    @venue = Venue.find(params[:id])
+    respond_to do |format|
+      msg = @venue.buy
+      format.html { redirect_to venues_path, notice: "Msg : #{msg['message']}" }
     end
   end
 

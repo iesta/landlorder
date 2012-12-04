@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :superpower, :uid, :ll_user_id, :ll_auth
 
+  has_many :venues
+
+  def nickname
+    (self.name && self.name.size>1) ? self.name : "User ##{self.id}"
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
