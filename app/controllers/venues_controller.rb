@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_filter :logged_in?
   # GET /venues
   # GET /venues.json
   def index

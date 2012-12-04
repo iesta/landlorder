@@ -35,3 +35,7 @@ Landlorder::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :foursquare, 'CA2UEUC0W0B1AII5ZZDOGT3CWBBH0JTRCJ2LTPJCZ1FCI2WP', 'I0VDAQPD4ZOGD1JB00QU224ZEI0AIECCRRZORUNHAAWFHDPA'
+end
