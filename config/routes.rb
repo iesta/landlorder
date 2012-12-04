@@ -1,6 +1,9 @@
 Landlorder::Application.routes.draw do
-  get "account/index"
+  get "landlord/index"
+  get "landlord/portfolio"
+  get "landlord/activity"
 
+  get "account/index"
   get "account/update"
 
   resources :venues do

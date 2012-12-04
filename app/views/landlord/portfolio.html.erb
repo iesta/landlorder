@@ -1,0 +1,47 @@
+<table id='sortit' class="tablesorter table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Place</th>
+			<th>Cat</th>
+			<!-- <th>Date</th> -->
+			<th>Purchase</th>
+			<th>Current</th>
+			<th>#Ch.</th>
+			<th>Return</th>
+			<th>Per/Ch.</th>
+			<th>Today</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+<% for item in @json %>
+<tr>
+<td><b><%= item['name'] -%></b></td>
+<td><%= item['location']['city'] -%> <%= item['location']['country'] -%></td>
+<td>
+	<%= item['category']['name'] -%><br />
+<!-- 	<% item['items'].each do |el| %>
+	<%= image_tag el['itemIcon'], :width => 16 -%>
+	<% end %> -->
+</td>
+<!-- <td><%= item['purchaseDateFormatted'] -%></td> -->
+<td><%= sdf item['purchasePrice'] -%></td>
+<td><%= df item['rawMarketValue'] -%></td>
+<td><%= item['checkins'] -%></td>
+<td><%= item['returnOnInvestment'] -%>%</td>
+<td><%= sdf item['venueMetrics'][0]['value'] -%></td>
+<td><%= df item['newRent'] -%></td>
+<td><%= df item['earnings'] -%></td>
+</tr>
+<% end %>
+
+</table>
+
+<script type="text/javascript">
+$(document).ready(function() 
+    { 
+        $("#sortit").tablesorter(); 
+    } 
+); 
+  
+</script>
