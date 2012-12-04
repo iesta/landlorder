@@ -48,7 +48,7 @@ class LandlordController < ApplicationController
     @request.set_form_data({
       "auth" => current_user.ll_auth,
       "userId" => current_user.ll_user_id,
-      "since" => Time.now.to_i - 100000
+      "since" => Time.now.to_i - 80000
       })
     response = @http.request(@request)
     begin
