@@ -44,7 +44,26 @@ class LandlordController < ApplicationController
   def activity
   end
 
-    protected
+
+  def sell
+    @uri = URI.parse("https://www.landlordgame.com/v2-1-0/sellVenue.php")
+
+    set_http()
+
+    @request.set_form_data({
+      "auth" => current_user.ll_auth,
+      "userId" => current_user.ll_user_id,
+      "venueId" => params[:id]
+      })
+
+    response = @http.request(@request)
+    respond_to do |format|
+      msg = response.body
+      format.html { redirect_to portfolio_path, notice: "Msg : #{msg}" }
+    end
+  end
+
+  protected
 
   def set_http
     @http = Net::HTTP.new(@uri.host, @uri.port)

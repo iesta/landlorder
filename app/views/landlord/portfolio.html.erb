@@ -2,6 +2,7 @@
 	<thead>
 		<tr>
 			<th>Name</th>
+			<th></th>
 			<th>Place</th>
 			<th>Cat</th>
 			<th>Hours</th>
@@ -19,6 +20,7 @@
 <% for item in @json %>
 <tr>
 <td><b><%= item['name'] -%></b></td>
+<td><%= link_to "s", sell_path(item['venueId']), :method => :post -%></td>
 <td><%= item['location']['city'] -%> <%= item['location']['country'] -%></td>
 <td>
 	<%= item['category']['name'] -%><br />
