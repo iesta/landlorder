@@ -3,8 +3,8 @@
 
 <h1>Listing venues</h1>
 
-<%= form_for(@venue) do |f| %>
-  <div class="field">
+<%= form_for(@venue, :html => {:class => 'form-inline'}) do |f| %>
+  <div class="input-append">
     <%= f.text_field :fsq_id, :placeholder => "Enter a foursquare id" %> <%= f.submit "Add venue", :class => 'btn' %>
   </div>
 <% end %>
