@@ -3,7 +3,7 @@ class LandlordController < ApplicationController
   require "uri"
   
   def index
-    @uri = URI.parse("    https://www.landlordgame.com/v2-1-0/getBalances.php")
+    @uri = URI.parse("https://www.landlordgame.com/v2-1-0/getUserDetails.php")
 
     set_http()
 

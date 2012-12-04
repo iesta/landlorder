@@ -7,4 +7,9 @@ module ApplicationHelper
   def sdf(price,curr='')
     df(price.gsub(/[^0-9]/i, '').to_i , curr)
   end
+
+  def int(string)
+    string.gsub(/[^0-9]/i, '').to_i
+  end
+
 end

@@ -1,10 +1,10 @@
-<table id='sortit' class="tablesorter table table-striped table-hover">
+<table id='sortit' class="tablesorter table table-hover">
 	<thead>
 		<tr>
 			<th>Name</th>
 			<th>Place</th>
 			<th>Cat</th>
-			<!-- <th>Date</th> -->
+			<th>Hours</th>
 			<th>Purchase</th>
 			<th>Current</th>
 			<th>#Ch.</th>
@@ -12,6 +12,8 @@
 			<th>Per/Ch.</th>
 			<th>Today</th>
 			<th>Total</th>
+			<th>M1</th>
+			<th>M2</th>
 		</tr>
 	</thead>
 <% for item in @json %>
@@ -24,7 +26,8 @@
 	<%= image_tag el['itemIcon'], :width => 16 -%>
 	<% end %> -->
 </td>
-<!-- <td><%= item['purchaseDateFormatted'] -%></td> -->
+<% hours = (Time.now.to_i - item['purchaseDate']) / 3600 %>
+<td><%= hours -%></td>
 <td><%= sdf item['purchasePrice'] -%></td>
 <td><%= df item['rawMarketValue'] -%></td>
 <td><%= item['checkins'] -%></td>
@@ -32,11 +35,14 @@
 <td><%= sdf item['venueMetrics'][0]['value'] -%></td>
 <td><%= df item['newRent'] -%></td>
 <td><%= df item['earnings'] -%></td>
+<td><%= item['earnings'].to_i / hours -%></td>
+<td><%= item['earnings'].to_i * 10000 / hours / int(item['purchasePrice']) -%></td>
 </tr>
 <% end %>
 
 </table>
-
+M1 : earnings / hour (higher is better) <br />
+M2 : earnings / hour / purchasePrice * 10000 (higher is better)
 <script type="text/javascript">
 $(document).ready(function() 
     { 
