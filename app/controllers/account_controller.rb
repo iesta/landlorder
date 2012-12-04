@@ -1,4 +1,5 @@
 class AccountController < ApplicationController
+  before_filter :logged_in?
   def index
     @user = current_user
   end

@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user
+  helper_method :current_user, :is_jedi?
 
   private
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def is_jedi?
+    current_user && current_user.superpower == 'jedi'
   end
 
   def logged_in?
