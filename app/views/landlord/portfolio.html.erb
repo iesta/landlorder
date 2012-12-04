@@ -37,8 +37,12 @@
 <td><%= sdf item['venueMetrics'][0]['value'] -%></td>
 <td><%= df item['newRent'] -%></td>
 <td><%= df item['earnings'] -%></td>
+<% if hours>0 %>
 <td><%= item['earnings'].to_i / hours -%></td>
 <td><%= item['earnings'].to_i * 10000 / hours / int(item['purchasePrice']) -%></td>
+<% else %>
+<td></td><td></td>
+<% end %>
 </tr>
 <% end %>
 

@@ -1,2 +1,13 @@
-<h1>Landlord#activity</h1>
-<p>Find me in app/views/landlord/activity.html.erb</p>
+<h3>Activity</h3>
+<table class="table">
+	<% for item in @json['activity'] %>
+	<% if item['type']=='earnedRent' %>
+	<tr>
+		<td>You <%= item['message'] -%></td>
+		<td><%= item['dateStamp'] -%></td>
+		<td></td>
+		<td>+<%= df item['amount'] -%></td>
+	</tr>
+	<% end %>
+	<% end %>
+</table>

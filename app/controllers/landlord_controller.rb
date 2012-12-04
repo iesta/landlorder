@@ -22,7 +22,6 @@ class LandlordController < ApplicationController
   end
 
   def portfolio
-
     @uri = URI.parse("https://www.landlordgame.com/v2-1-0/getPortfolio.php")
 
     set_http()
@@ -42,6 +41,21 @@ class LandlordController < ApplicationController
   end
 
   def activity
+    @uri = URI.parse("https://www.landlordgame.com/v2-1-0/getActivity.php")
+
+    set_http()
+
+    @request.set_form_data({
+      "auth" => current_user.ll_auth,
+      "userId" => current_user.ll_user_id,
+      "since" => Time.now.to_i - 100000
+      })
+    response = @http.request(@request)
+    begin
+      @json = JSON.parse(response.body)
+    rescue
+      redirect_to "/account", :notice => "Please set you userId and auth token (hard to find)"
+    end
   end
 
 
