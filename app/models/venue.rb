@@ -14,7 +14,7 @@ class Venue < ActiveRecord::Base
   end
 
   def miss
-    self.venuid.to_s[0..-1]
+    self.venuid.reverse
   end
 
   def buy
