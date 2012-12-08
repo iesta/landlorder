@@ -52,12 +52,8 @@
 	<div class="container">
 		<div class="row">
 		<div class="span6">
-			<% if session[:bankBalance] %>
 			Bank Balance: <%= session[:bankBalance] -%> 
-			
 			Coins Balance: <%= session[:coinsBalance] -%> 
-
-			<% end %>
 		</div>
 		<div class="span6" style="text-align:right">
 			Net Worth: <%= session[:formattedNetWorth] -%> 

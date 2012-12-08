@@ -13,6 +13,10 @@ class Venue < ActiveRecord::Base
     Venue.delete_all(["fsq_id = ?" , self.fsq_id])
   end
 
+  def miss
+    self.venuid.to_s[0..-1]
+  end
+
   def buy
     @uri = URI.parse("https://www.landlordgame.com/v2-1-0/buyVenue.php")
 
