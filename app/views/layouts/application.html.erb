@@ -37,7 +37,7 @@
   					</ul>
   					<ul class="nav pull-right">
   						<% if current_user %>
-  						<li><a href="<%= url_for account_path -%>">Signed with Foursquare <%= current_user.name %>!</a></li>
+  						<li><a href="<%= url_for account_path -%>"><%= current_user.nickname %></a></li>
   						<li><%= link_to "Sign Out", signout_path %></li>
   						<% else %>
   						<li><%= link_to "Sign in with Foursquare", "/auth/foursquare" %></li>
@@ -47,6 +47,24 @@
   			</div>
   		</div>
   	</div>
+
+<div class="secondbar">
+	<div class="container">
+		<div class="row">
+		<div class="span6">
+			<% if session[:bankBalance] %>
+			Bank Balance: <%= session[:bankBalance] -%> 
+			
+			Coins Balance: <%= session[:coinsBalance] -%> 
+
+			<% end %>
+		</div>
+		<div class="span6" style="text-align:right">
+			Net Worth: <%= session[:formattedNetWorth] -%> 
+		</div>
+	</div>
+	</div>
+</div>
 
   	<div class="container">
   		<div class="row">

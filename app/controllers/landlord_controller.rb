@@ -15,6 +15,9 @@ class LandlordController < ApplicationController
     response = @http.request(@request)
     begin
       @json = JSON.parse(response.body)
+      session[:bankBalance] = @json['bankBalance']
+      session[:formattedNetWorth] = @json['formattedNetWorth']
+      session[:coinsBalance] = @json['coinsBalance']
     rescue
       redirect_to "/account", :notice => "Please set you userId and auth token (hard to find)"
     end
