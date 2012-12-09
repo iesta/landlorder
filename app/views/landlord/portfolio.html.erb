@@ -24,9 +24,9 @@
 <td><%= item['location']['city'] -%> <%= item['location']['country'] -%></td>
 <td>
 	<%= item['category']['name'] -%><br />
-<!-- 	<% item['items'].each do |el| %>
-	<%= image_tag el['itemIcon'], :width => 16 -%>
-	<% end %> -->
+<!-- 	<%# item['items'].each do |el| %>
+	<%# image_tag el['itemIcon'], :width => 16 -%>
+	<%# end %> -->
 </td>
 <% hours = (Time.now.to_i - item['purchaseDate']) / 3600 %>
 <td><%= hours -%></td>
