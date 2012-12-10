@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.order('created_at DESC')
+    @venues = current_user.venues.order('created_at DESC')
     @venue =Venue.new
     respond_to do |format|
       format.html # index.html.erb

@@ -9,8 +9,8 @@ class Venue < ActiveRecord::Base
     require "uri"
 
   def remove_old
-    #Venue.delete_all(["fsq_id = ? AND user_id = ?" , self.fsq_id, self.user.id])
-    Venue.delete_all(["fsq_id = ?" , self.fsq_id])
+    Venue.delete_all(["fsq_id = ? AND user_id = ?" , self.fsq_id, self.user.id])
+    #Venue.delete_all(["fsq_id = ?" , self.fsq_id])
   end
 
   def miss
