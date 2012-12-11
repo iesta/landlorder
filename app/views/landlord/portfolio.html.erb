@@ -20,7 +20,11 @@
 	</thead>
 	<% for item in @json %>
 	<tr>
-		<td><b><%= item['name'] -%></b></td>
+		<td><b><%= item['name'] -%></b>
+		        <br />
+   <% item['items'].each do |el| %>
+        <%= image_tag el['itemIcon'], :width => 20 -%>
+        <% end %></td>
 		<td><%= sdf item['venueMetrics'][0]['value'] -%></td>
 		<td><%= item['items'].size -%></td>
 		<td><%= item['location']['city'] -%> <%= item['location']['country'] -%></td>
@@ -60,3 +64,9 @@ $(document).ready(function()
 );
 
 </script>
+<style type="text/css">
+	.tablesorter td ,.tablesorter th {
+		font-size: 12px;
+		padding: 1px;
+	}
+</style>
