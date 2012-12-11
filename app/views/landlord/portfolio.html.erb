@@ -2,58 +2,61 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th></th>
+			<th class="{sorter: 'digit'}">Ch</th>
+			<th class="{sorter: 'digit'}">Up.</th>
 			<th>Place</th>
 			<th>Cat</th>
-			<th>Hours</th>
-			<th>Purchase</th>
-			<th>Current</th>
-			<th>#Ch.</th>
-			<th>Return</th>
-			<th>Per/Ch.</th>
-			<th>Today</th>
-			<th>Total</th>
-			<th>M1</th>
-			<th>M2</th>
+			<th class="{sorter: 'digit'}">Hours</th>
+			<th class="{sorter: 'digit'}">Purchase</th>
+			<th class="{sorter: 'digit'}">Current</th>
+			<th class="{sorter: 'digit'}">#Ch</th>
+			<th class="{sorter: 'percent'}">Return</th>
+			<th class="{sorter: 'digit'}">Today</th>
+			<th class="{sorter: 'digit'}">Total</th>
+			<th class="{sorter: 'digit'}">M1</th>
+			<th class="{sorter: 'digit'}">M2</th>
+			<th class="{sorter: false}"></th>
 		</tr>
 	</thead>
-<% for item in @json %>
-<tr>
-<td><b><%= item['name'] -%></b></td>
-<td><%= link_to "s", sell_path(item['venueId']), :method => :post -%></td>
-<td><%= item['location']['city'] -%> <%= item['location']['country'] -%></td>
-<td>
-	<%= item['category']['name'] -%><br />
-<!-- 	<%# item['items'].each do |el| %>
-	<%# image_tag el['itemIcon'], :width => 16 -%>
-	<%# end %> -->
-</td>
-<% hours = (Time.now.to_i - item['purchaseDate']) / 3600 %>
-<td><%= hours -%></td>
-<td><%= sdf item['purchasePrice'] -%></td>
-<td><%= df item['rawMarketValue'] -%></td>
-<td><%= item['checkins'] -%></td>
-<td><%= item['returnOnInvestment'] -%>%</td>
-<td><%= sdf item['venueMetrics'][0]['value'] -%></td>
-<td><%= df item['newRent'] -%></td>
-<td><%= df item['earnings'] -%></td>
-<% if hours>0 %>
-<td><%= item['earnings'].to_i / hours -%></td>
-<td><%= item['earnings'].to_i * 10000 / hours / int(item['purchasePrice']) -%></td>
-<% else %>
-<td></td><td></td>
-<% end %>
-</tr>
-<% end %>
+	<% for item in @json %>
+	<tr>
+		<td><b><%= item['name'] -%></b></td>
+		<td><%= sdf item['venueMetrics'][0]['value'] -%></td>
+		<td><%= item['items'].size -%></td>
+		<td><%= item['location']['city'] -%> <%= item['location']['country'] -%></td>
+		<td><%= item['category']['name'] -%></td>
+				<% hours = (Time.now.to_i - item['purchaseDate']) / 3600 %>
+		<td><%= hours -%></td>
+		<td><%= sdf item['purchasePrice'] -%></td>
+		<td><%= df item['rawMarketValue'] -%></td>
+		<td><%= item['checkins'] -%></td>
+		<td><%= item['returnOnInvestment'] -%>%</td>
+		<td><%= df item['newRent'] -%></td>
+		<td><%= df item['earnings'] -%></td>
+		<% if hours>0 %>
+			<td><%= item['earnings'].to_i / hours -%></td>
+			<td><%= item['earnings'].to_i * 10000 / hours / int(item['purchasePrice']) -%></td>
+		<% else %>
+			<td></td><td></td>
+		<% end %>
+		<td><%= link_to raw("<i class='icon-shopping-cart'></i>"), sell_path(item['venueId']), :method => :post -%></td>
+	</tr>
+	<% end %>
 
 </table>
 M1 : earnings / hour (higher is better) <br />
 M2 : earnings / hour / purchasePrice * 10000 (higher is better)
 <script type="text/javascript">
-$(document).ready(function() 
-    { 
-        $("#sortit").tablesorter(); 
-    } 
-); 
-  
+var myTextExtraction = function(node)
+{
+	return parseInt( node.innerHTML.replace(/\,/,'').replace(/\./,'').replace(/\s/,'') );
+}
+
+
+$(document).ready(function()
+{
+	$("#sortit").tablesorter(  );
+}
+);
+
 </script>

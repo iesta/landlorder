@@ -44,9 +44,7 @@
     <td>
     	<%= link_to raw("<i class='icon-th-large'></i>"), "https://fr.foursquare.com/v/#{venue.fsq_id}" %>
     	<%= link_to raw("<i class='icon-remove'></i>"), venue, method: :delete, data: { confirm: 'Are you sure?' } %>
-    	<% if is_jedi? %>
     	<%= link_to raw("<i class='icon-shopping-cart'></i>"), buy_venue_path(venue), :method => :post %>
-    	<% end %>
     </td>
   </tr>
 <% end %>

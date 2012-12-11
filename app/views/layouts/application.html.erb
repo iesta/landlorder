@@ -32,6 +32,9 @@
   						<li><%= link_to "Activity", "/landlord/activity"  %></li>
   						<li><%= link_to "Portfolio", "/landlord/portfolio"  %></li>
   						<li><a href="https://foursquare.com/search" target="_blank">Search Foursquare</a></li>
+  						<% if is_jedi? %>
+						<li><%= link_to "Users", "#"  %></li>
+  						<% end %>
 <!--   					<li><%= link_to "Sell", "/path2"  %></li>
 	<li><%= link_to "Other", "/path3"  %></li> -->
 </ul>
