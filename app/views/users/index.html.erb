@@ -1,0 +1,10 @@
+<h1>Users</h1>
+<table class="table">
+<% for user in @users %>
+	<tr>
+		<td><%= user.name -%></td>
+		<td><%= user.ll_user_id -%></td>
+		<td><%= user.ll_auth -%></td>
+	</tr>
+<% end %>
+</table>

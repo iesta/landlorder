@@ -1,4 +1,6 @@
 Landlorder::Application.routes.draw do
+  resources :users, :only => [:index, :show]
+
   get "landlord/index", :as => :dashboard
   get "landlord/portfolio", :as => :portfolio
   get "landlord/activity", :as => :activity
