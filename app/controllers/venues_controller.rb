@@ -59,7 +59,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     respond_to do |format|
       msg = @venue.buy
-      format.html { redirect_to venues_path, notice: "Msg : #{msg['message']}" }
+      format.html { redirect_to venues_path, notice: "Msg : #{msg}" }
     end
   end
 
