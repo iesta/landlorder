@@ -27,7 +27,7 @@
    </tr>
 
 <% @venues.each do |venue| %>
-  <tr>
+  <tr id="tr<%= venue.id -%>">
     <td><%= link_to venue.name, venue %></td>
 <!--     <td><%= venue.venuid %></td> -->
     <td><%= df venue.market_value %></td>
@@ -43,7 +43,7 @@
     <td><%= time_ago_in_words(venue.created_at) -%></td>
     <td>
     	<%= link_to raw("<i class='icon-th-large'></i>"), "https://fr.foursquare.com/v/#{venue.fsq_id}" %>
-    	<%= link_to raw("<i class='icon-remove'></i>"), venue, method: :delete, data: { confirm: 'Are you sure?' } %>
+    	<%= link_to raw("<i class='icon-remove'></i>"), venue, method: :delete, :remote => true %>
     	<%= link_to raw("<i class='icon-shopping-cart'></i>"), buy_venue_path(venue), :method => :post %>
     </td>
   </tr>
