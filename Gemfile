@@ -28,6 +28,7 @@ group :development do
   gem 'quiet_assets'
   gem 'heroku'
   gem 'taps'
+  gem 'sqlite3'
 end
 
 

@@ -47,7 +47,9 @@ class Venue < ActiveRecord::Base
 
     response = @http.request(@request)
 
+
     json = JSON.parse(response.body)
+    logger.debug json
     self.name = json['venueName']
     self.market_value = json['marketValue'].gsub(/[^0-9]/i, '').to_i
     self.venuid = json['venueId']
