@@ -2,7 +2,7 @@ module Landlord
   require "net/https"
   require "uri"
 
-  def post(url,data)
+  def ll_post(url,data)
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true

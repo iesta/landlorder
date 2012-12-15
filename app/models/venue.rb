@@ -1,12 +1,13 @@
 class Venue < ActiveRecord::Base
-  attr_accessible :cat_color, :cat_id, :cat_image, :cat_name, :expected_profit, :expected_rent, :fsq_id, :market_value, :name, :venuid, :daily_costs
+  attr_accessible :cat_color, :cat_id, :cat_image, :cat_name, :expected_profit, :expected_rent, 
+                  :fsq_id, :market_value, :name, :venuid, :daily_costs
 
   belongs_to :user
 
   before_create :fetch_landlord_data, :remove_old
 
-    require "net/https"
-    require "uri"
+  require "net/https"
+  require "uri"
 
   def remove_old
     Venue.delete_all(["fsq_id = ? AND user_id = ?" , self.fsq_id, self.user.id])

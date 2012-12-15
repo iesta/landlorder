@@ -1,12 +1,13 @@
 <div class="row">
 	<div class="span12">
 
-<h3>Venues</h3>
-
+<h3><%= @title -%></h3>
+<% unless @hide_form %>
 <%= form_for(@venue, :html => {:class => 'form-inline'}) do |f| %>
   <div class="input-append">
     <%= f.text_field :fsq_id, :placeholder => "Enter a foursquare id" %> <%= f.submit "Add venue", :class => 'btn' %>
   </div>
+<% end %>
 <% end %>
 
 

@@ -4,6 +4,7 @@ class VenuesController < ApplicationController
   # GET /venues.json
   def index
     @venues = current_user.venues.order('created_at DESC')
+    @title = "Your venues"
     @venue =Venue.new
     respond_to do |format|
       format.html # index.html.erb
