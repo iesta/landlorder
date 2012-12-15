@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :superpower, :uid, :ll_user_id, :ll_auth
 
-  has_many :venues
+  has_many :venues, :order => 'created_at DESC'
 
   def nickname
     (self.name && self.name.size>1) ? self.name : "User ##{self.id}"

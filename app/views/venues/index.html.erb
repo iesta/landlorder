@@ -46,8 +46,10 @@
 <!--     <td><%= time_ago_in_words(venue.created_at) -%></td> -->
     <td>
     	<%= link_to raw("<i class='icon-th-large'></i>"), "https://fr.foursquare.com/v/#{venue.fsq_id}" %>
+    	<% unless @hide_form %>
     	<%= link_to raw("<i class='icon-remove'></i>"), venue, method: :delete, :remote => true %>
     	<%= link_to raw("<i class='icon-shopping-cart'></i>"), buy_venue_path(venue), :method => :post %>
+    	<% end %>
     </td>
   </tr>
 <% end %>

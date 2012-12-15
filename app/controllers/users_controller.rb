@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  include Landlord
-
+  before_filter :logged_in?
   def index
     @users = User.all
   end

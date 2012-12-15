@@ -1,4 +1,6 @@
 class LandlordController < ApplicationController
+  before_filter :logged_in?
+
   require "net/https"
   require "uri"
   

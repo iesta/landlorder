@@ -5,13 +5,13 @@ Landlorder::Application.routes.draw do
     end
   end
 
-  get "landlord/index", :as => :dashboard
-  get "landlord/portfolio", :as => :portfolio
-  get "landlord/activity", :as => :activity
+  get  "landlord/index", :as => :dashboard
+  get  "landlord/portfolio", :as => :portfolio
+  get  "landlord/activity", :as => :activity
   post "landlord/sell/:id" => "landlord#sell", :as => :sell
 
-  get "account/index"
-  get "account/update"
+  get  "account/index"
+  get  "account/update"
 
   resources :venues do
     member do
