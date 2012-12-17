@@ -1,0 +1,9 @@
+if Rails.env == 'production'
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider :foursquare, YOU_KEY, YOUR_SECRET
+  end
+else
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider :foursquare, YOU_KEY, YOUR_SECRET
+  end
+end
