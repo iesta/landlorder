@@ -1,3 +1,5 @@
+# TODO : use LandlordRequest
+
 class LandlordController < ApplicationController
   before_filter :logged_in?
 
